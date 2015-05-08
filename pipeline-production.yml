@@ -113,7 +113,7 @@ resources:
     target: {{bosh-target}}
     username: {{bosh-username}}
     password: {{bosh-password}}
-    deployment: concourse-production
+    deployment: cf-production
     ignore_ssl: true
 
 - name: release-version

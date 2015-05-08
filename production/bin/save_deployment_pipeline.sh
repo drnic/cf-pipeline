@@ -3,8 +3,7 @@
 # Inputs are:
 # - {name: make-manifest, path: .}
 # - {name: release-version}
-# - {name: release-concourse}
-# - {name: release-garden-linux}
+# - {name: release-cf}
 # - {name: stemcell}
 
 if [[ ! -f release-version/number ]]; then
@@ -13,15 +12,11 @@ if [[ ! -f release-version/number ]]; then
 fi
 release_version=$(cat release-version/number)
 
-mkdir -p pipeline-assets/releases/docker
-mkdir -p pipeline-assets/releases/concourse
+mkdir -p pipeline-assets/releases/cf
 mkdir -p pipeline-assets/stemcell
 
-cp release-concourse/* pipeline-assets/releases/docker/
-rm pipeline-assets/releases/docker/*.tgz
-
-cp release-garden-linux/* pipeline-assets/releases/concourse/
-rm pipeline-assets/releases/concourse/*.tgz
+cp release-concourse/* pipeline-assets/releases/cf/
+rm pipeline-assets/releases/cf/*.tgz
 
 cp stemcell/* pipeline-assets/stemcell/
 rm pipeline-assets/stemcell/*.tgz
