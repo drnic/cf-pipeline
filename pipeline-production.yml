@@ -6,7 +6,8 @@ jobs:
   plan:
   - aggregate:
     - {get: stemcell, trigger: true}
-    - {get: release-cf, trigger: true}
+    # not fetching cf release since its huge; assumes manually uploaded
+    - {get: release-cf, trigger: true, params: {tarball: false}}
     - {get: pipeline, resource: git-pipeline, trigger: false}
     - {get: production-pipeline-changes, trigger: true}
     - {get: production-env-changes, trigger: true}
@@ -53,7 +54,9 @@ jobs:
   - put: deployment-production
     params:
       manifest: make-manifest/production/manifests/manifest.yml
-      releases: [release-*/*.tgz]
+      # not fetching releases currently until they are much smaller
+      releases: []
+      # releases: [release-*/*.tgz]
       stemcells: [stemcell/*.tgz]
 
   - put: release-version
