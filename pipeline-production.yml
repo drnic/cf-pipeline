@@ -82,7 +82,7 @@ resources:
 
 - name: release-cf
   type: bosh-io-release
-  source: {repository: cloudfoundry/cf}
+  source: {repository: cloudfoundry/cf-release}
 
 - name: git-pipeline
   type: git

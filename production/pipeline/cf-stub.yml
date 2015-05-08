@@ -1,0 +1,16 @@
+---
+name: (( meta.name ))
+director_uuid: (( meta.director_uuid ))
+releases:
+- name: cf
+  version: (( meta.release_versions.cf ))
+properties:
+  loggregator_endpoint:
+    shared_secret: (( meta.secrets.loggregator_endpoint ))
+meta:
+  name: (( merge ))
+  director_uuid: (( merge ))
+  release_versions:
+    cf: (( merge ))
+  secrets:
+    loggregator_endpoint: (( merge ))
