@@ -13,6 +13,7 @@ spiff merge \
   pipeline/cf-release/cf-lamb.yml \
   pipeline/cf-release/cf-infrastructure-warden.yml \
   pipeline/cf-stub.yml \
+  environment/networks.yml \
   environment/secrets.yml \
   environment/director.yml \
   environment/name.yml \
